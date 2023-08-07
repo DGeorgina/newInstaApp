@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <div>
+
+    </div>
+</head>
+
+<body>
+
+    <div class="row" >
+             <button class="button-53" role="button" [routerLink]="['/form']">Create New Thumbnail!</button>
+    </div>
+
+
+    <div style="margin:30px;">
+
+
+        <div id="cardsContainer">
+
+
+            <div class="card col-2" style="margin: 5px;" *ngFor="let photo of thumbnails | paginate:  { itemsPerPage: 5, currentPage: p }">
+
+                <img class="card-img-top image-fluid" src="{{photo.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <a class="card-title" [routerLink]="['/thumbnails',photo.id]">{{photo.title}}</a>
+                </div>
+
+                <div class="card-footer">
+                    <button class="btn btn-outline-primary " style="margin-right:5px;margin-left: 0px;"  [routerLink]="['/edit',photo.id]">Edit</button>
+                    <button class="btn btn-outline-danger" style="margin-left:5px;margin-right:0px" (click)="onDelete(photo)">Delete</button>
+                </div>
+            </div>
+            
+            <pagination-controls style="margin: 80px;color:green; font-size: 22px;" (pageChange)="p = $event" class="float-right"></pagination-controls>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

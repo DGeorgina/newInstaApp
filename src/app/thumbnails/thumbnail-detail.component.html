@@ -1,0 +1,63 @@
+<div class='card' style="margin: 150px;">
+  <div class='card-header'>
+    {{pageTitle + ': ' + thumbnail?.title}}
+  </div>
+
+  <div class='card-body' *ngIf='thumbnail'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='row'>
+          <div class='col-md-4'>Title:</div>
+          <div class='col-md-8'>{{thumbnail.title | lowercase}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Album id:</div>
+          <div class='col-md-8'>{{thumbnail.albumId }}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Id:</div>
+          <div class='col-md-8'>{{thumbnail.id}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Url:</div>
+          <a class='col-md-8 link-offset-2' style="color: greenyellow;" href="{{thumbnail.url}}">Click</a>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Thumbnail URL:</div>
+          <a class='col-md-8 link-offset-2' style="color: greenyellow;" href="{{thumbnail.thumbnailUrl}}">Click</a>
+        </div>
+
+      </div>
+
+      <div class='col-md-4'>
+        <img class='center-block img-responsive ' [style.width.px]='250' [style.height.px]="250" [style.margin.px]='2'
+          [src]='thumbnail.thumbnailUrl' [title]='thumbnail.title'>
+      </div>
+    </div>
+  </div>
+
+  <div class='card-footer'>
+
+
+    <div class="row">
+      <div class="col-6">
+        <button class="button-89" role="button" style='width:80px' (click)='onBack()'>
+          <i class='fa fa-chevron-left'></i>Back
+        </button>
+      </div>
+      <div class="col-6 d-flex flex-row-reverse">
+
+        <button class="btn btn-outline-primary " style="margin-left:5px;" *ngIf="thumbnail!=undefined"
+          [routerLink]="['/edit',thumbnail.id]">Edit</button>
+
+        <button class="btn btn-outline-danger" style="margin-left:5px;"
+          (click)="onDelete(thumbnail)">Delete</button>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

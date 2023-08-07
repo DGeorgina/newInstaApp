@@ -1,0 +1,16 @@
+
+nav{
+    background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #f6f8f8 0%, #d7ead9 74%);
+    
+}
+
+.navbar-brand{
+    font-size: 30px;
+    
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    color: brown;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
